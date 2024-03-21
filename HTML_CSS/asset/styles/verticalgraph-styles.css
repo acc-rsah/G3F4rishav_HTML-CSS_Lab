@@ -1,0 +1,52 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+.bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 200px;
+    background-color: #f8f8f8;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.bar {
+    width: 30px;
+    background-color: #808080;
+    margin: 0 10px;
+    position: relative;
+    animation: raiseBar 2s ease-out forwards;
+}
+
+.bar:after {
+    content: attr(data-percentage);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+@keyframes raiseBar {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: var(--percentage);
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
